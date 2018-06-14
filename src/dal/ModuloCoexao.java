@@ -22,7 +22,7 @@ public class ModuloCoexao {
         String driver = "com.mysql.cj.jdbc.Driver";
         // Armazenando informações referente ao banco
         // variavel do tipo sting nome url caminho do banco de dados
-        String url = "jdbc:mysql://localhost:3306/dbmecanicagustavo";
+        String url = "jdbc:mysql://localhost:3306/dbmecanicagustavo?useTimezone=true&serverTimezone=UTC";
         String user = "root";
         String password = "";
         // Estabelecendo a conexão com o banco
