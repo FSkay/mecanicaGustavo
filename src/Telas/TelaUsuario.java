@@ -51,6 +51,36 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         }
     }
 
+    private void adicionar() {
+        String sql = "insert into tbeusuario(iduser, nomeuser, emailuser, login, senha) values(?, ?, ?, ?, ?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUsuId.getText());
+            pst.setString(2, txtUsoNome.getText());
+            pst.setString(3, txtUsoEmail.getText());
+            pst.setString(4, txtUsoLogin.getText());
+            pst.setString(5, txtUsoSenha.getText());
+// validação dos campos obrigatorios
+            if (txtUsuId.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
+            } else {
+                int adicionado = pst.executeUpdate();
+                System.out.println(adicionado);
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário adocionado com sucesso");
+                    txtUsoNome.setText(null);
+                    txtUsoEmail.setText(null);
+                    txtUsoLogin.setText(null);
+                    txtUsoSenha.setText(null);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    //private void (){
+
+    //}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,6 +124,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnUsoCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar.png_160x41.jpg"))); // NOI18N
         btnUsoCreate.setToolTipText("Adicionar");
         btnUsoCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsoCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsoCreateActionPerformed(evt);
+            }
+        });
 
         btnUsoRead.setText("Consultar");
         btnUsoRead.setToolTipText("Consultar");
@@ -198,6 +233,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         // chamando o metodo consultar
         consultar();
     }//GEN-LAST:event_btnUsoReadActionPerformed
+
+    private void btnUsoCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsoCreateActionPerformed
+        adicionar();
+    }//GEN-LAST:event_btnUsoCreateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
