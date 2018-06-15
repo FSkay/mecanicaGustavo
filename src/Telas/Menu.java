@@ -36,6 +36,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblData2 = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         menCad = new javax.swing.JMenu();
         MenCadCli = new javax.swing.JMenuItem();
@@ -70,11 +72,11 @@ public class Menu extends javax.swing.JFrame {
         Desktop.setLayout(DesktopLayout);
         DesktopLayout.setHorizontalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1047, Short.MAX_VALUE)
+            .addGap(0, 770, Short.MAX_VALUE)
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel1.setText("jLabel1");
@@ -84,6 +86,11 @@ public class Menu extends javax.swing.JFrame {
 
         lblData.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblData.setText("Data");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/logo.png"))); // NOI18N
+
+        lblData2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData2.setText("Data");
 
         menCad.setText("Cadastro");
 
@@ -140,7 +147,14 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblData2)))
+                .addGap(534, 534, 534)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblData)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -150,25 +164,33 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Desktop)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblUsuario)
-                .addGap(26, 26, 26)
-                .addComponent(lblData)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblUsuario))
+                    .addComponent(jLabel2))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblData)
+                    .addComponent(lblData2))
                 .addGap(168, 168, 168)
                 .addComponent(jLabel1)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(383, Short.MAX_VALUE))
+            .addComponent(Desktop)
         );
 
         lblData.getAccessibleContext().setAccessibleName("");
 
-        setSize(new java.awt.Dimension(896, 638));
+        setSize(new java.awt.Dimension(1034, 844));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenCadUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadUsActionPerformed
-        // TODO add your handling code here:
+        // as linhas abaixo voão abrir o form TelaUsuario dentro do destop pane
+            TelaUsuario usuario = new TelaUsuario();
+            usuario.setVisible(true);
+            Desktop.add(usuario);
     }//GEN-LAST:event_MenCadUsActionPerformed
 
     private void MenAjuSobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenAjuSobActionPerformed
@@ -181,7 +203,7 @@ public class Menu extends javax.swing.JFrame {
         // as linhas abaixo substituem a label lblData pela data atual
         Date data = new Date();
         DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
-        lblData.setText(formatador.format(data));
+        lblData2.setText(formatador.format(data));
     }//GEN-LAST:event_formWindowActivated
 
     private void MenOpcSaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenOpcSaiActionPerformed
@@ -239,7 +261,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenOpcSai;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblData2;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenu menCad;
     // End of variables declaration//GEN-END:variables
