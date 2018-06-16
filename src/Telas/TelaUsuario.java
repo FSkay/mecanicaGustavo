@@ -67,7 +67,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 int adicionado = pst.executeUpdate();
                 System.out.println(adicionado);
                 if (adicionado > 0) {
-                    JOptionPane.showMessageDialog(null, "Usuário adocionado com sucesso");
+                    JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
                     txtUsoNome.setText(null);
                     txtUsoEmail.setText(null);
                     txtUsoLogin.setText(null);
@@ -215,9 +215,9 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtUsoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(160, 160, 160)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUsoCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnUsoRead)
                             .addComponent(btnUsoUpdate)
