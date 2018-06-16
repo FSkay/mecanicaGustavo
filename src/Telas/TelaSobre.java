@@ -38,11 +38,11 @@ public class TelaSobre extends javax.swing.JFrame {
 
         jLabel1.setText("Sistema para controle de Ordem de Serviços");
 
-        jLabel2.setText("Desenvolvido por Daniela Natividade Sampaio, Felipe Menegat, Samuel Gross, Ronaldo Zuastariswats(Zueira depois acerto o nome)  ");
+        jLabel2.setText("Desenvolvido pelos Acadêmicos do Curso de Análise e Desenvolvimento de Sistemas da Faculdade CNEC Santo Ângelo.");
 
         jLabel3.setText("Sob a licença GPL");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText(" Daniela  Sampaio Natividade, Felipe Menegat, Samuel Gross, Ronaldo Zydeck  ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,14 +51,11 @@ public class TelaSobre extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(88, 88, 88))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,11 +64,11 @@ public class TelaSobre extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel3)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
