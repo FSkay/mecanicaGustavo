@@ -11,6 +11,7 @@ package Telas;
  */
 import java.sql.*;
 import dal.ModuloCoexao;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class TelaUsuario extends javax.swing.JInternalFrame {
@@ -61,11 +62,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(4, txtUsoLogin.getText());
             pst.setString(5, txtUsoSenha.getText());
 // validação dos campos obrigatorios
-            if (txtUsuId.getText().isEmpty()) {
+            if ((txtUsuId.getText().isEmpty() || (txtUsoNome.getText().isEmpty()) || (txtUsoEmail.getText().isEmpty()) || (txtUsoLogin.getText().isEmpty()) || (txtUsoSenha.getText().isEmpty()))) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
             } else {
                 int adicionado = pst.executeUpdate();
-                System.out.println(adicionado);
+                //System.out.println(adicionado);
                 if (adicionado > 0) {
                     JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
                     txtUsoNome.setText(null);
@@ -78,9 +79,56 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    //private void (){
 
-    //}
+    private void alterar() {
+        String sql = "update tbeusuario set nomeuser=?, emailuser=?, login=?, senha=? where iduser=";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUsoNome.getText());
+            pst.setString(2, txtUsoEmail.getText());
+            pst.setString(3, txtUsoLogin.getText());
+            pst.setString(4, txtUsoSenha.getText());
+            if ((txtUsuId.getText().isEmpty() || (txtUsoNome.getText().isEmpty()) || (txtUsoEmail.getText().isEmpty()) || (txtUsoLogin.getText().isEmpty()) || (txtUsoSenha.getText().isEmpty()))) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
+            } else {
+                int adicionado = pst.executeUpdate();
+                //System.out.println(adicionado);
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados do usuário alterados com sucesso");
+                    txtUsoNome.setText(null);
+                    txtUsoEmail.setText(null);
+                    txtUsoLogin.setText(null);
+                    txtUsoSenha.setText(null);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void remover() {
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este usuário", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbeusuario where iduser=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtUsuId.getText());
+                int apagado = pst.executeUpdate();
+                if (apagado > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário removido com sucesso");
+                    txtUsuId.setText(null);
+                    txtUsoNome.setText(null);
+                    txtUsoEmail.setText(null);
+                    txtUsoLogin.setText(null);
+                    txtUsoSenha.setText(null);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,13 +187,23 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnUsoUpdate.setText("Editar");
+        btnUsoUpdate.setText("Alterar");
         btnUsoUpdate.setToolTipText("Editar");
         btnUsoUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsoUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsoUpdateActionPerformed(evt);
+            }
+        });
 
         btnUsoDelete.setText("Excluir");
         btnUsoDelete.setToolTipText("Excluir");
         btnUsoDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsoDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsoDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,7 +243,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                         .addComponent(btnUsoCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnUsoRead)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(btnUsoUpdate)
                         .addGap(35, 35, 35)))
                 .addComponent(btnUsoDelete)
@@ -237,6 +295,14 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void btnUsoCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsoCreateActionPerformed
         adicionar();
     }//GEN-LAST:event_btnUsoCreateActionPerformed
+
+    private void btnUsoUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsoUpdateActionPerformed
+        alterar();
+    }//GEN-LAST:event_btnUsoUpdateActionPerformed
+
+    private void btnUsoDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsoDeleteActionPerformed
+        remover();
+    }//GEN-LAST:event_btnUsoDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
