@@ -48,6 +48,7 @@
                           </Group>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -65,7 +66,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtCliId" min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="txtCpfCli" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                  <Component id="txtSenhaCli" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="txtLoginCli" alignment="0" pref="142" max="32767" attributes="0"/>
+                                      <Component id="txtSenhaCli" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="187" max="32767" attributes="0"/>
                           </Group>
@@ -112,12 +116,17 @@
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtEmailCli" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtLoginCli" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtSenhaCli" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAddCli" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEdiCli" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -201,7 +210,14 @@
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSenhaCli">
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Login"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtSenhaCli">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtLoginCli">
     </Component>
   </SubComponents>
 </Form>
