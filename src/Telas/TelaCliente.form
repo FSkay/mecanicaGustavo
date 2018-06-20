@@ -127,10 +127,12 @@
                   <Component id="txtSenhaCli" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="74" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAddCli" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnEdiCli" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnExcluCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnAddCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnExcluCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>

@@ -5,17 +5,59 @@
  */
 package Telas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Skay
  */
 public class TelaCliente extends javax.swing.JInternalFrame {
 
+    Connection conexao = null;
+    // criando variáveis especias para conexão com o banco de dados
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
     /**
      * Creates new form TelaCliente
      */
     public TelaCliente() {
         initComponents();
+    }
+
+    public void adicionarcli() {
+        String sql = "insert into tbcliente(idcli, nomecli, cpfcli, endecocli, emailcli, login, senhacli) values(?, ?, ?, ?, ?, ?, ?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtCliId.getText());
+            pst.setString(2, txtNomeCli.getText());
+            pst.setString(3, txtCpfCli.getText());
+            pst.setString(4, txtEndCli.getText());
+            pst.setString(5, txtEmailCli.getText());
+            pst.setString(6, txtSenhaCli.getText());
+            // pst.setString(8, txtUsoSenha.getText());
+            // pst.setString(9, txtUsoSenha.getText());
+            // pst.setString(10, txtUsoSenha.getText());
+            if ((txtCliId.getText().isEmpty() || (txtNomeCli.getText().isEmpty()) || (txtCpfCli.getText().isEmpty()) || (txtEndCli.getText().isEmpty()) || (txtEmailCli.getText().isEmpty() || (txtSenhaCli.getText().isEmpty())))) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
+            } else {
+                int adicionadocli = pst.executeUpdate();
+            }
+            if (adicionadocli > 0) {
+                JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
+                txtNomeCli.setText(null);
+                txtCpfCli.setText(null);
+                txtEndCli.setText(null);
+                txtEmailCli.setText(null);
+                txtSenhaCli.setText(null);
+
+            }
+        } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -161,10 +203,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtSenhaCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddCli)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEdiCli)
-                    .addComponent(btnExcluCli))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAddCli)
+                        .addComponent(btnExcluCli)))
                 .addGap(56, 56, 56))
         );
 
@@ -172,7 +215,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCliActionPerformed
-        // TODO add your handling code here:
+            adicionarcli();
     }//GEN-LAST:event_btnAddCliActionPerformed
 
 
