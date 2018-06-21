@@ -150,6 +150,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtFoneCli = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Mecanica Gustavo Clientes");
 
         btnAddCli.setText("Incluir");
@@ -294,10 +296,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                             .addComponent(btnEdiCli)
                             .addComponent(btnAddCli)))
                     .addComponent(btnExcluCli))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 364, 328);
+        setBounds(0, 0, 364, 353);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCliActionPerformed
