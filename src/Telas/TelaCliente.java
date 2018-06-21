@@ -31,7 +31,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }
 
     public void adicionarcli() {
-        String sql = "insert into tbcliente(idcli, nomecli, cpfcli, enderecocli, cidadecli, fonecli, emailcli) values(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into tbclientes(idcli, nomecli, cpfcli, enderecocli, cidadecli, fonecli, emailcli) values(?, ?, ?, ?, ?, ?, ?)";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCliId.getText());
@@ -41,25 +41,57 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             pst.setString(5, txtCidaCli.getText());
             pst.setString(6, txtFoneCli.getText());
             pst.setString(7, txtEmailCli.getText());
-            // pst.setString(6, txtSenhaCli.getText());
-            // pst.setString(8, txtUsoSenha.getText());
-            // pst.setString(9, txtUsoSenha.getText());
-            // pst.setString(10, txtUsoSenha.getText());
-            if ((txtCliId.getText().isEmpty() || (txtNomeCli.getText().isEmpty()) || (txtCpfCli.getText().isEmpty()) || (txtEndCli.getText().isEmpty()) || (txtEmailCli.getText().isEmpty()))) {
+            // valida se os dados forma preenchidos
+            if ((txtCliId.getText().isEmpty() || (txtNomeCli.getText().isEmpty()) || (txtCpfCli.getText().isEmpty()) || (txtEndCli.getText().isEmpty()) || (txtCidaCli.getText().isEmpty()) || (txtFoneCli.getText().isEmpty()) || (txtEmailCli.getText().isEmpty()))) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
             } else {
                 int adicionadocli = pst.executeUpdate();
+                // Essa linha faz que que "limpa" os campos após a inserção dos dados
+                // cliente com sucesso
                 if (adicionadocli > 0) {
                     JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
+                    txtCliId.setText(null);
                     txtNomeCli.setText(null);
                     txtCpfCli.setText(null);
                     txtEndCli.setText(null);
+                    txtCidaCli.setText(null);
+                    txtFoneCli.setText(null);
                     txtEmailCli.setText(null);
-                    //  txtSenhaCli.setText(null);
 
                 }
             }
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void alterarcli() {
+        String sql = "update tbclientes set nomecli=?, cpfcli=?, enderecocli=?, cidadecli=?, fonecli=?, emailcli=?  where idcli=";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtCliId.getText());
+            pst.setString(2, txtNomeCli.getText());
+            pst.setString(3, txtCpfCli.getText());
+            pst.setString(4, txtEndCli.getText());
+            pst.setString(5, txtCidaCli.getText());
+            pst.setString(6, txtFoneCli.getText());
+            pst.setString(7, txtEmailCli.getText());
+            if ((txtCliId.getText().isEmpty() || (txtNomeCli.getText().isEmpty()) || (txtCpfCli.getText().isEmpty()) || (txtEndCli.getText().isEmpty()) || (txtCidaCli.getText().isEmpty()) || (txtFoneCli.getText().isEmpty()) || (txtEmailCli.getText().isEmpty()))) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatorios");
+            } else {
+                int adicionadocli = pst.executeUpdate();
+                if (adicionadocli > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário alterado com sucesso");
+                    txtCliId.setText(null);
+                    txtNomeCli.setText(null);
+                    txtCpfCli.setText(null);
+                    txtEndCli.setText(null);
+                    txtCidaCli.setText(null);
+                    txtFoneCli.setText(null);
+                    txtEmailCli.setText(null);
+                }
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -237,13 +269,13 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
     //Sem utilidade criado por engano
     private void txtFoneCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFoneCliActionPerformed
- 
+
     }//GEN-LAST:event_txtFoneCliActionPerformed
     //Sem utilidade criado por engano
     private void txtCidaCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidaCliActionPerformed
 
     }//GEN-LAST:event_txtCidaCliActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCli;
