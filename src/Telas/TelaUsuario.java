@@ -152,6 +152,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnUsoRead = new javax.swing.JButton();
         btnUsoUpdate = new javax.swing.JButton();
         btnUsoDelete = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -159,15 +160,15 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setTitle("Usuários");
         setPreferredSize(new java.awt.Dimension(770, 0));
 
-        jLabel1.setText("Id");
+        jLabel1.setText("* Id");
 
-        jLabel2.setText("Nome");
+        jLabel2.setText("* Nome");
 
-        jLabel3.setText("E-mail");
+        jLabel3.setText("* E-mail");
 
-        jLabel4.setText("Login");
+        jLabel4.setText("* Login");
 
-        jLabel5.setText("Senha");
+        jLabel5.setText("* Senha");
 
         btnUsoCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar.png_160x41.jpg"))); // NOI18N
         btnUsoCreate.setToolTipText("Adicionar");
@@ -204,6 +205,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 btnUsoDeleteActionPerformed(evt);
             }
         });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel6.setText("* Campos obrigatorios");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,16 +248,20 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                         .addComponent(btnUsoCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnUsoRead)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(btnUsoUpdate)
                         .addGap(35, 35, 35)))
-                .addComponent(btnUsoDelete)
-                .addGap(147, 147, 147))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(btnUsoDelete))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtUsuId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,7 +293,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 .addContainerGap(146, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 693, 619);
+        setBounds(0, 0, 685, 619);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsoReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsoReadActionPerformed
@@ -315,6 +324,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtUsoEmail;
     private javax.swing.JTextField txtUsoLogin;
     private javax.swing.JTextField txtUsoNome;

@@ -90,6 +90,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/logo.png"))); // NOI18N
 
         lblData2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData2.setForeground(new java.awt.Color(255, 102, 0));
         lblData2.setText("Data");
 
         menCad.setText("Cadastro");
