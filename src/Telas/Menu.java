@@ -96,6 +96,11 @@ public class Menu extends javax.swing.JFrame {
 
         MenCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         MenCadCli.setText("Cliente");
+        MenCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenCadCliActionPerformed(evt);
+            }
+        });
         menCad.add(MenCadCli);
 
         MenCadOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
@@ -188,9 +193,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenCadUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadUsActionPerformed
         // as linhas abaixo voão abrir o form TelaUsuario dentro do destop pane
-            TelaUsuario usuario = new TelaUsuario();
-            usuario.setVisible(true);
-            Desktop.add(usuario);
+        TelaUsuario usuario = new TelaUsuario();
+        usuario.setVisible(true);
+        Desktop.add(usuario);
     }//GEN-LAST:event_MenCadUsActionPerformed
 
     private void MenAjuSobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenAjuSobActionPerformed
@@ -208,11 +213,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenOpcSaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenOpcSaiActionPerformed
         // exibe uma caixa de dialago
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair:","Atenção", JOptionPane.YES_NO_OPTION);
-        if(sair == JOptionPane.YES_OPTION){
-          System.exit(0);
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair:", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+            System.exit(0);
         }
     }//GEN-LAST:event_MenOpcSaiActionPerformed
+
+    private void MenCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadCliActionPerformed
+        TelaCliente cliente = new TelaCliente();
+        cliente.setVisible(true);
+        Desktop.add(cliente);
+    }//GEN-LAST:event_MenCadCliActionPerformed
 
     /**
      * @param args the command line arguments
