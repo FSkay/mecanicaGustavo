@@ -96,6 +96,30 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+       private void removercli() {
+        int confirmacli = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este cliente", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirmacli == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbclientes where idcli=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtCliId.getText());
+                int apagado = pst.executeUpdate();
+                if (apagado > 0) {
+                    JOptionPane.showMessageDialog(null, "Cliente removido com sucesso");
+                    txtCliId.setText(null);
+                    txtNomeCli.setText(null);
+                    txtCpfCli.setText(null);
+                    txtEndCli.setText(null);
+                    txtCidaCli.setText(null);
+                    txtFoneCli.setText(null);
+                    txtEmailCli.setText(null);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,6 +162,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         btnExcluCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir.png_20x21.jpg"))); // NOI18N
         btnExcluCli.setText("Excluir");
+        btnExcluCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluCliActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("id_cliente");
 
@@ -275,6 +304,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void txtCidaCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidaCliActionPerformed
 
     }//GEN-LAST:event_txtCidaCliActionPerformed
+
+    private void btnExcluCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluCliActionPerformed
+        removercli();
+    }//GEN-LAST:event_btnExcluCliActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
