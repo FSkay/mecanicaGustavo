@@ -88,6 +88,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                     txtCidaCli.setText(null);
                     txtFoneCli.setText(null);
                     txtEmailCli.setText(null);
+                    btnAddCli.setEnabled(true);
                 }
             }
         } catch (Exception e) {
@@ -112,6 +113,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                     txtCidaCli.setText(null);
                     txtFoneCli.setText(null);
                     txtEmailCli.setText(null);
+                    // a linha abaixo desabilita o botão adicionar
+                    btnAddCli.setEnabled(true);
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -146,6 +149,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtCidaCli.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
         txtFoneCli.setText(tblClientes.getModel().getValueAt(setar, 6).toString());
         txtEmailCli.setText(tblClientes.getModel().getValueAt(setar, 7).toString());
+        // a linha abaixo desabilita o botão adicionar
+        btnAddCli.setEnabled(false);
     }
 
     /**
@@ -181,6 +186,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Mecanica Gustavo Clientes");
@@ -195,6 +201,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         btnEdiCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar.png"))); // NOI18N
         btnEdiCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEdiCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEdiCliActionPerformed(evt);
+            }
+        });
 
         btnExcluCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir.png_20x21.jpg"))); // NOI18N
         btnExcluCli.setText("Excluir");
@@ -253,7 +264,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nome", "CPF", "Endereço"
             }
         ));
         tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -353,9 +364,9 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtCpfCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEndCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEndCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -403,6 +414,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         setar_campos();
     }//GEN-LAST:event_tblClientesMouseClicked
+
+    private void btnEdiCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdiCliActionPerformed
+        alterarcli();
+    }//GEN-LAST:event_btnEdiCliActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
