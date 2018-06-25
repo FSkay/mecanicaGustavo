@@ -53,17 +53,17 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
     //metodo para cadastrar uma OS
     private void emitir_os() {
-        String sql = "insert into tbos(tipo, veiculo, placa, km, valor, idcli) values(?,?,?,?,?,?)";
+        String sql = "insert into tbos(tipo, veiculo, placa, km, valor, idcli) values(?,?,?,?,?,?,?)";
         try {
             pst=conexao.prepareStatement(sql);
             pst.setString(1, tipo);
-            pst.setString(2, cboOsSet.getSelectedItem().toString());
-            pst.setString(3, txtOsVei.getText());
-            pst.setString(4, txtOsPlaca.getText());
-            pst.setString(5, txtOsKm.getText());
-            pst.setString(6, txtOsMec.getText());
-            pst.setString(7, txtOsValor.getText());
-            pst.setString(8, txtidCli.getText());
+            //pst.setString(2, cboOsSet.getSelectedItem().toString());
+            pst.setString(2, txtOsVei.getText());
+            pst.setString(3, txtOsPlaca.getText());
+            pst.setString(4, txtOsKm.getText());
+            pst.setString(5, txtOsMec.getText());
+            pst.setString(6, txtOsValor.getText());
+            pst.setString(7, txtidCli.getText());
             
             //validação dos campos obrigatorios
             if ((txtidCli.getText().isEmpty())|| (txtOsVei.getText().isEmpty() || txtOsPlaca.getText().isEmpty() || txtOsPlaca.getText().isEmpty())){
