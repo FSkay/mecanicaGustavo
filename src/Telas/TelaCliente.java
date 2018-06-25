@@ -129,6 +129,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
     private void pesquisar_Cliente() {
         String sql = "select * from tbclientes where nomecli like ?";
+        //faz a pesquisa pela letra inicial do nome
         try {
             pst = conexao.prepareStatement(sql);
             //passando o conteúdo da caixa de pesquisa para o ? (interroga)
@@ -151,8 +152,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtCpfCli.setText(tblClientes.getModel().getValueAt(setar, 2).toString());
         txtEndCli.setText(tblClientes.getModel().getValueAt(setar, 3).toString());
         txtCidaCli.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
-        txtFoneCli.setText(tblClientes.getModel().getValueAt(setar, 6).toString());
-        txtEmailCli.setText(tblClientes.getModel().getValueAt(setar, 7).toString());
+        txtFoneCli.setText(tblClientes.getModel().getValueAt(setar, 5).toString());
+        txtEmailCli.setText(tblClientes.getModel().getValueAt(setar, 6).toString());
         // a linha abaixo desabilita o botão adicionar
         btnAddCli.setEnabled(false);
     }
