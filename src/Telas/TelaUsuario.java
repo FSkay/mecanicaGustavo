@@ -68,6 +68,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 //System.out.println(adicionado);
                 if (adicionado > 0) {
                     JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
+     
                     txtUsoNome.setText(null);
                     txtUsoEmail.setText(null);
                     txtUsoLogin.setText(null);

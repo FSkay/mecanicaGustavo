@@ -226,6 +226,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenOpcSaiActionPerformed
 
     private void MenCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadCliActionPerformed
+        // chamdo a TelaCliente 
         TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
         Desktop.add(cliente);
