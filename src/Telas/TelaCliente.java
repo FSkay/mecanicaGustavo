@@ -391,7 +391,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 .addGap(98, 98, 98))
         );
 
-        setBounds(0, 0, 510, 539);
+        setBounds(0, 0, 510, 552);
     }// </editor-fold>//GEN-END:initComponents
 //metodo qe adiciona cliente
     private void btnAddCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCliActionPerformed

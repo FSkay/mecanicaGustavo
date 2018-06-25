@@ -431,7 +431,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                 .addGap(46, 46, 46))
         );
 
-        setBounds(0, 0, 694, 450);
+        setBounds(0, 0, 694, 492);
     }// </editor-fold>//GEN-END:initComponents
     // sem utilidade
     private void txtOsValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOsValorActionPerformed
