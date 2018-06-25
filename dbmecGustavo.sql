@@ -46,3 +46,4 @@ mecanico varchar(50),
 fk_idcli int not null,
 foreign key (fk_idcli) references tbclientes (idcli) 
 );
+alter table tbos add valor decimal(10,2) not null;
