@@ -63,7 +63,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
             pst.setString(5, txtOsKm.getText());
             pst.setString(6, txtOsMec.getText());
             pst.setString(7, txtOsValor.getText());
-            pst.setString(13, txtidCli.getText());
+            pst.setString(8, txtidCli.getText());
             
             //validação dos campos obrigatorios
             if ((txtidCli.getText().isEmpty())|| (txtOsVei.getText().isEmpty() || txtOsPlaca.getText().isEmpty() || txtOsPlaca.getText().isEmpty())){
