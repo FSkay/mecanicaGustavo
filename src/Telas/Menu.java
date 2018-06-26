@@ -10,8 +10,6 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import dal.ModuloCoexao;
-//import net.sf.jasperreports.engine.JRException;
-//import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;

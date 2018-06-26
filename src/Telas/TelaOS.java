@@ -7,8 +7,12 @@ package Telas;
 
 import java.sql.*;
 import dal.ModuloCoexao;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -229,6 +233,25 @@ public class TelaOS extends javax.swing.JInternalFrame {
             }
         }
     }
+    //método para imprimir os
+    private void imprimir_os(){
+          // gerando relatório de os
+        int confirma = JOptionPane.showConfirmDialog(null,"Confirma a impressão desta Os?","Atenção",JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION){
+            // imprimindo relatório com o framework JasterReports
+            try {
+                //Usando a classe HashMap para criar um filtro
+                HashMap filtro = new HashMap();
+                filtro.put("os",Integer.parseInt(txtOs.getText()));
+                //Usando a classe JasperPrint para preparar a impressão de um relatório
+               JasperPrint print = JasperFillManager.fillReport("H://reports//os.jasper",filtro, conexao);
+               // a linha abaixo exibe o relatório atabés da classe JasperViewer
+               JasperViewer.viewReport(print,false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -333,8 +356,11 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Número OS");
 
+        txtOs.setEditable(false);
+
         jLabel2.setText("Data OS");
 
+        txtData.setEditable(false);
         txtData.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
         buttonGroup1.add(rbtOrc);
@@ -403,6 +429,8 @@ public class TelaOS extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setText("* Id");
+
+        txtidCli.setEditable(false);
 
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -499,6 +527,11 @@ public class TelaOS extends javax.swing.JInternalFrame {
         });
 
         btnOsImprimir.setText("Imprimir");
+        btnOsImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOsImprimirActionPerformed(evt);
+            }
+        });
 
         btnOsPesquisar.setText("Pesquisar");
         btnOsPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -714,6 +747,11 @@ public class TelaOS extends javax.swing.JInternalFrame {
     private void btnOsExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOsExcluirActionPerformed
         excluir_os();
     }//GEN-LAST:event_btnOsExcluirActionPerformed
+
+    private void btnOsImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOsImprimirActionPerformed
+        // chamando o método para imprimir uma os
+        imprimir_os();
+    }//GEN-LAST:event_btnOsImprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
